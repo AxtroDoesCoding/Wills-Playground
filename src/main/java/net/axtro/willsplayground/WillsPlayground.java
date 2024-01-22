@@ -1,6 +1,11 @@
 package net.axtro.willsplayground;
 
 import com.mojang.logging.LogUtils;
+import net.axtro.willsplayground.block.ModBlocks;
+import net.axtro.willsplayground.item.ModCreativeTabs;
+import net.axtro.willsplayground.item.ModItems;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -18,28 +23,30 @@ import org.slf4j.Logger;
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(WillsPlayground.MOD_ID)
 public class WillsPlayground {
-    // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "willsplayground";
-    // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public WillsPlayground() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModCreativeTabs.register(modEventBus);
+
+        ModItems.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
-
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
 
     }
 
-    // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
+            event.accept(ModItems.BEER.get());
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

@@ -113,76 +113,67 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    // Put repositories for dependencies here
-    // ForgeGradle automatically adds the Forge maven and Maven Central for you
+    }
 
-    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
-    // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
-    // flatDir {
-    //     dir 'libs'
-    // }
-}
+    dependencies {
+        // Specify the version of Minecraft to use.
+        // Any artifact can be supplied so long as it has a "userdev" classifier artifact and is a compatible patcher artifact.
+        // The "userdev" classifier will be requested and setup by ForgeGradle.
+        // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
+        // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
+        minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-dependencies {
-    // Specify the version of Minecraft to use.
-    // Any artifact can be supplied so long as it has a "userdev" classifier artifact and is a compatible patcher artifact.
-    // The "userdev" classifier will be requested and setup by ForgeGradle.
-    // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
-    // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+        // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
+        // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
+        // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
+        // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
+        // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+        // Example mod dependency using a mod jar from ./libs with a flat dir repository
+        // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
+        // The group id is ignored when searching -- in this case, it is "blank"
+        // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
 
-    // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
-    // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
-    // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
-    // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
-    // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
-
-    // Example mod dependency using a mod jar from ./libs with a flat dir repository
-    // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
-    // The group id is ignored when searching -- in this case, it is "blank"
-    // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
-
-    // For more info:
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-}
+        // For more info:
+        // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
+        // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    }
 
 // This block of code expands all declared replace properties in the specified resource targets.
 // A missing property will result in an error. Properties are expanded using ${} Groovy notation.
 // When "copyIdeResources" is enabled, this will also run before the game launches in IDE environments.
 // See https://docs.gradle.org/current/dsl/org.gradle.language.jvm.tasks.ProcessResources.html
-tasks.named('processResources', ProcessResources).configure {
-    var replaceProperties = [
-            minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
-            forge_version: forge_version, forge_version_range: forge_version_range,
-            loader_version_range: loader_version_range,
-            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-            mod_authors: mod_authors, mod_description: mod_description,
-    ]
-    inputs.properties replaceProperties
+    tasks.named('processResources', ProcessResources).configure {
+        var replaceProperties = [
+                minecraft_version   : minecraft_version, minecraft_version_range: minecraft_version_range,
+                forge_version       : forge_version, forge_version_range: forge_version_range,
+                loader_version_range: loader_version_range,
+                mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+                mod_authors         : mod_authors, mod_description: mod_description,
+        ]
+        inputs.properties replaceProperties
 
-    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
-        expand replaceProperties + [project: project]
+        filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+            expand replaceProperties + [project: project]
+        }
     }
-}
 
 // Example for how to get properties into the manifest for reading at runtime.
-tasks.named('jar', Jar).configure {
-    manifest {
-        attributes([
-                'Specification-Title'     : mod_id,
-                'Specification-Vendor'    : mod_authors,
-                'Specification-Version'   : '1', // We are version 1 of ourselves
-                'Implementation-Title'    : project.name,
-                'Implementation-Version'  : project.jar.archiveVersion,
-                'Implementation-Vendor'   : mod_authors,
-                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
-    }
+    tasks.named('jar', Jar).configure {
+        manifest {
+            attributes([
+                    'Specification-Title'     : mod_id,
+                    'Specification-Vendor'    : mod_authors,
+                    'Specification-Version'   : '1', // We are version 1 of ourselves
+                    'Implementation-Title'    : project.name,
+                    'Implementation-Version'  : project.jar.archiveVersion,
+                    'Implementation-Vendor'   : mod_authors,
+                    'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+            ])
+        }
 
-    // This is the preferred method to reobfuscate your jar file
-    finalizedBy 'reobfJar'
-}
+        // This is the preferred method to reobfuscate your jar file
+        finalizedBy 'reobfJar'
+    }
 
 // However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing:
 // tasks.named('publish').configure {
@@ -190,19 +181,19 @@ tasks.named('jar', Jar).configure {
 // }
 
 // Example configuration to allow publishing using the maven-publish plugin
-publishing {
-    publications {
-        register('mavenJava', MavenPublication) {
-            artifact jar
+    publishing {
+        publications {
+            register('mavenJava', MavenPublication) {
+                artifact jar
+            }
+        }
+        repositories {
+            maven {
+                url "file://${project.projectDir}/mcmodsrepo"
+            }
         }
     }
-    repositories {
-        maven {
-            url "file://${project.projectDir}/mcmodsrepo"
-        }
-    }
-}
 
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
-}
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+    }
