@@ -11,8 +11,14 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, WillsPlayground.MOD_ID);
 
-public static final RegistryObject<Item> BEER = ITEMS.register("beer",
-        () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BEER = ITEMS.register("beer",
+            () -> new Item(new Item.Properties().food(ModFoods.BEER)));
+
+    public static final RegistryObject<Item> ENZORITE = ITEMS.register("enzorite",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> RAW_ENZORITE = ITEMS.register("raw_enzorite",
+            () -> new Item(new Item.Properties()));
 
 
 

@@ -32,6 +32,7 @@ public class WillsPlayground {
         ModCreativeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -44,8 +45,7 @@ public class WillsPlayground {
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
-            event.accept(ModItems.BEER.get());
+        {
         }
     }
 

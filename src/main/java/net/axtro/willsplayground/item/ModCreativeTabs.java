@@ -1,6 +1,7 @@
 package net.axtro.willsplayground.item;
 
 import net.axtro.willsplayground.WillsPlayground;
+import net.axtro.willsplayground.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -20,6 +21,10 @@ public class ModCreativeTabs {
 
 
                         pOutput.accept(ModItems.BEER.get());
+                        pOutput.accept(ModItems.ENZORITE.get());
+                        pOutput.accept(ModItems.RAW_ENZORITE.get());
+                        pOutput.accept(ModBlocks.ENZORITE_BLOCK.get());
+                        pOutput.accept(ModBlocks.RAW_ENZORITE_BLOCK.get());
 
 
 

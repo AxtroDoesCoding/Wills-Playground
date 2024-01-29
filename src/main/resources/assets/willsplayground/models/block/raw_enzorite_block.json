@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "willsplayground:block/raw_enzorite_block"
+  }
+}
