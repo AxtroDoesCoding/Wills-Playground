@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "willsplayground:raw_enzorite"
+    }
+  },
+  "result": {
+    "item": "willsplayground:raw_enzorite_block"
+  }
+}

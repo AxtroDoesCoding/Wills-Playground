@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "willsplayground:raw_enzorite_block"
+    }
+  ],
+  "result": {
+    "item": "willsplayground:raw_enzorite",
+    "count": 9
+  }
+}

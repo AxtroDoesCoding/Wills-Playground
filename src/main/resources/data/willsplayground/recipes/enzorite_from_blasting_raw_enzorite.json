@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "group": "enzorite",
+  "ingredient": {
+    "item": "willsplayground:raw_enzorite"
+  },
+  "result": "willsplayground:enzorite"
+}

@@ -25,7 +25,7 @@ public class ModCreativeTabs {
                         pOutput.accept(ModItems.RAW_ENZORITE.get());
                         pOutput.accept(ModBlocks.ENZORITE_BLOCK.get());
                         pOutput.accept(ModBlocks.RAW_ENZORITE_BLOCK.get());
-
+                        pOutput.accept(ModBlocks.DEEPSLATE_ENZORITE_ORE.get());
 
 
                     })

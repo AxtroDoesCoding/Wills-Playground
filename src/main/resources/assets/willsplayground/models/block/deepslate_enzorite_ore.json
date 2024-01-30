@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "willsplayground:block/deepslate_enzorite_ore"
+  }
+}
