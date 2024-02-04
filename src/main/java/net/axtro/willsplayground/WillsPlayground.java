@@ -2,8 +2,11 @@ package net.axtro.willsplayground;
 
 import com.mojang.logging.LogUtils;
 import net.axtro.willsplayground.block.ModBlocks;
+import net.axtro.willsplayground.entity.ModEntities;
+import net.axtro.willsplayground.entity.client.ChameleonRenderer;
 import net.axtro.willsplayground.item.ModCreativeTabs;
 import net.axtro.willsplayground.item.ModItems;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -19,6 +22,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import software.bernie.geckolib.GeckoLib;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(WillsPlayground.MOD_ID)
@@ -33,6 +37,10 @@ public class WillsPlayground {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModEntities.register(modEventBus);
+
+        GeckoLib.initialize();
 
         modEventBus.addListener(this::commonSetup);
 
@@ -61,7 +69,7 @@ public class WillsPlayground {
     {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            EntityRenderers.register(ModEntities.CHAMELEON.get(), ChameleonRenderer::new);
         }
     }
 }
