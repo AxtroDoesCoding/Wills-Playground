@@ -33,7 +33,7 @@ public class ChameleonRenderer extends GeoEntityRenderer<ChameleonEntity> {
     public void render(ChameleonEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
                        MultiBufferSource bufferSource, int packedLight) {
         if(entity.isBaby()) {
-            poseStack.scale(0.4f,0.4f,0.4f);
+            poseStack.scale(0.6f,0.6f,0.6f);
         }
 
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);

@@ -83,9 +83,9 @@
 							"rotation": [7.5, 0, 0],
 							"uv": {
 								"north": {"uv": [0, 0], "uv_size": [0, 1]},
-								"east": {"uv": [17, 9], "uv_size": [5, 1]},
+								"east": {"uv": [25, 21], "uv_size": [5, 1]},
 								"south": {"uv": [0, 0], "uv_size": [0, 1]},
-								"west": {"uv": [17, 10], "uv_size": [5, 1]},
+								"west": {"uv": [22, 25], "uv_size": [5, 1]},
 								"up": {"uv": [0, 0], "uv_size": [0, 5]},
 								"down": {"uv": [0, 5], "uv_size": [0, -5]}
 							}
