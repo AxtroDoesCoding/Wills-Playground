@@ -1,8 +1,7 @@
-package net.axtro.willsplayground.entity.client;
+package net.axtro.willsplayground.client.model;
 
 import net.axtro.willsplayground.WillsPlayground;
-import net.axtro.willsplayground.entity.custom.ChameleonEntity;
-import net.minecraft.client.model.EntityModel;
+import net.axtro.willsplayground.entity.EntityChameleon;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import software.bernie.geckolib.constant.DataTickets;
@@ -11,25 +10,25 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.model.data.EntityModelData;
 
-public class ChameleonModel extends GeoModel<ChameleonEntity> {
+public class ChameleonModel extends GeoModel<EntityChameleon> {
     @Override
-    public ResourceLocation getModelResource(ChameleonEntity chameleonEntity) {
+    public ResourceLocation getModelResource(EntityChameleon entityChameleon) {
         return new ResourceLocation(WillsPlayground.MOD_ID, "geo/chameleon.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(ChameleonEntity chameleonEntity) {
+    public ResourceLocation getTextureResource(EntityChameleon entityChameleon) {
         return new ResourceLocation(WillsPlayground.MOD_ID, "textures/entity/chameleon.png");
     }
 
     @Override
-    public ResourceLocation getAnimationResource(ChameleonEntity chameleonEntity) {
+    public ResourceLocation getAnimationResource(EntityChameleon entityChameleon) {
         return new ResourceLocation(WillsPlayground.MOD_ID, "animations/chameleon.animation.json");
 
     }
 
     @Override
-    public void setCustomAnimations(ChameleonEntity animatable, long instanceId, AnimationState<ChameleonEntity> animationState) {
+    public void setCustomAnimations(EntityChameleon animatable, long instanceId, AnimationState<EntityChameleon> animationState) {
         CoreGeoBone head = getAnimationProcessor().getBone("head");
 
         if (head != null) {

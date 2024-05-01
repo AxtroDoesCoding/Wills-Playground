@@ -1,23 +1,20 @@
 package net.axtro.willsplayground;
 
 import com.mojang.logging.LogUtils;
-import net.axtro.willsplayground.block.ModBlocks;
-import net.axtro.willsplayground.entity.ModEntities;
-import net.axtro.willsplayground.entity.client.ChameleonRenderer;
-import net.axtro.willsplayground.item.ModCreativeTabs;
+import net.axtro.willsplayground.block.WPBlockRegistry;
+import net.axtro.willsplayground.client.render.RenderRideableGoat;
+import net.axtro.willsplayground.entity.WPEntityRegistry;
+import net.axtro.willsplayground.client.render.RenderChameleon;
+import net.axtro.willsplayground.misc.WFCreativeTabRegistry;
 import net.axtro.willsplayground.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -33,12 +30,12 @@ public class WillsPlayground {
     public WillsPlayground() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModCreativeTabs.register(modEventBus);
+        WFCreativeTabRegistry.register(modEventBus);
 
         ModItems.register(modEventBus);
-        ModBlocks.register(modEventBus);
+        WPBlockRegistry.register(modEventBus);
 
-        ModEntities.register(modEventBus);
+        WPEntityRegistry.register(modEventBus);
 
         GeckoLib.initialize();
 
@@ -69,7 +66,8 @@ public class WillsPlayground {
     {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            EntityRenderers.register(ModEntities.CHAMELEON.get(), ChameleonRenderer::new);
+            EntityRenderers.register(WPEntityRegistry.CHAMELEON.get(), RenderChameleon::new);
+            EntityRenderers.register(WPEntityRegistry.RIDEABLE_GOAT.get(), RenderRideableGoat::new);
         }
     }
 }

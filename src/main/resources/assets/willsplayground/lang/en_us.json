@@ -1,14 +1,21 @@
 {
   "item.willsplayground.beer": "Will's Beer",
+  "item.willsplayground.metal_detector": "Metal Detector",
+
 
   "item.willsplayground.enzorite": "Enzorite",
   "item.willsplayground.raw_enzorite": "Raw Enzorite",
+  "item.willsplayground.bio_fuel": "Bio Fuel",
+  "item.willsplayground.rideable_goat_egg": "Rideable Goat Egg",
+  "item.willsplayground.chameleon_egg": "Chameleon Egg",
+
 
   "block.willsplayground.enzorite_block": "Block of Enzorite",
   "block.willsplayground.raw_enzorite_block": "Block of Raw Enzorite",
   "block.willsplayground.deepslate_enzorite_ore": "Deepslate Enzorite Ore",
 
   "entity.willsplayground.chameleon": "Chameleon",
+  "entity.willsplayground.rideable_goat": "Goat",
 
 
   "creativetab.playground_tab": "Will's Playground"

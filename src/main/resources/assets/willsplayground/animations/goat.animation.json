@@ -1,0 +1,24 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.goat.sitting": {
+			"loop": true
+		},
+		"animation.goat.idle": {
+			"loop": true,
+			"animation_length": 0.79167,
+			"bones": {
+				"lower_left_F": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.7917": {
+							"vector": [0, 0, 0]
+						}
+					}
+				}
+			}
+		}
+	}
+}
