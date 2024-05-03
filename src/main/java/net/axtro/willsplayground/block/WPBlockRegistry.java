@@ -2,7 +2,8 @@ package net.axtro.willsplayground.block;
 
 
 import net.axtro.willsplayground.WillsPlayground;
-import net.axtro.willsplayground.item.ModItems;
+import net.axtro.willsplayground.client.sound.WPSoundRegistry;
+import net.axtro.willsplayground.item.WPItemRegistry;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -34,7 +35,7 @@ public class WPBlockRegistry {
     }
 
     private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+        return WPItemRegistry.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
     public static void register(IEventBus eventBus) {

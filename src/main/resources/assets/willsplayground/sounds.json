@@ -1,0 +1,20 @@
+{
+  "raw_enzorite_block_break": {
+    "subtitle": "willsplayground.raw_enzorite_block_break",
+    "sounds": [
+      "willsplayground:raw_enzorite_block_break"
+    ]
+  },
+  "raw_enzorite_block_hit": {
+    "subtitle": "willsplayground.raw_enzorite_block_hit",
+    "sounds": [
+      "willsplayground:raw_enzorite_block_hit"
+    ]
+  },
+  "raw_enzorite_block_place": {
+    "subtitle": "willsplayground.raw_enzorite_block_place",
+    "sounds": [
+      "willsplayground:raw_enzorite_block_place"
+    ]
+  }
+}

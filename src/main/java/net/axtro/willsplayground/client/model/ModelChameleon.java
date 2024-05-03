@@ -5,12 +5,13 @@ import net.axtro.willsplayground.entity.EntityChameleon;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import software.bernie.geckolib.constant.DataTickets;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
 import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.model.data.EntityModelData;
 
-public class ChameleonModel extends GeoModel<EntityChameleon> {
+public class ModelChameleon extends GeoModel<EntityChameleon> {
     @Override
     public ResourceLocation getModelResource(EntityChameleon entityChameleon) {
         return new ResourceLocation(WillsPlayground.MOD_ID, "geo/chameleon.geo.json");

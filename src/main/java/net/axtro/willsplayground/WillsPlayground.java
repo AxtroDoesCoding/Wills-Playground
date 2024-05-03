@@ -3,10 +3,11 @@ package net.axtro.willsplayground;
 import com.mojang.logging.LogUtils;
 import net.axtro.willsplayground.block.WPBlockRegistry;
 import net.axtro.willsplayground.client.render.RenderRideableGoat;
+import net.axtro.willsplayground.client.sound.WPSoundRegistry;
 import net.axtro.willsplayground.entity.WPEntityRegistry;
 import net.axtro.willsplayground.client.render.RenderChameleon;
-import net.axtro.willsplayground.misc.WFCreativeTabRegistry;
-import net.axtro.willsplayground.item.ModItems;
+import net.axtro.willsplayground.misc.WPCreativeTabRegistry;
+import net.axtro.willsplayground.item.WPItemRegistry;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -30,9 +31,9 @@ public class WillsPlayground {
     public WillsPlayground() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        WFCreativeTabRegistry.register(modEventBus);
+        WPCreativeTabRegistry.register(modEventBus);
 
-        ModItems.register(modEventBus);
+        WPItemRegistry.register(modEventBus);
         WPBlockRegistry.register(modEventBus);
 
         WPEntityRegistry.register(modEventBus);
@@ -40,6 +41,8 @@ public class WillsPlayground {
         GeckoLib.initialize();
 
         modEventBus.addListener(this::commonSetup);
+
+        WPSoundRegistry.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);

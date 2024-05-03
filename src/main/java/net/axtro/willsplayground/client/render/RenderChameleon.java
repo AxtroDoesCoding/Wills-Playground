@@ -2,7 +2,7 @@ package net.axtro.willsplayground.client.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.axtro.willsplayground.WillsPlayground;
-import net.axtro.willsplayground.client.model.ChameleonModel;
+import net.axtro.willsplayground.client.model.ModelChameleon;
 import net.axtro.willsplayground.entity.EntityChameleon;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -12,7 +12,7 @@ import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 public class RenderChameleon extends GeoEntityRenderer<EntityChameleon> {
     public RenderChameleon(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new ChameleonModel());
+        super(renderManager, new ModelChameleon());
 
 
     }

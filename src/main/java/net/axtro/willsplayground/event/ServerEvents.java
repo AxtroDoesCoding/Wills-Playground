@@ -10,7 +10,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = WillsPlayground.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ModEvents {
+public class ServerEvents {
     @SubscribeEvent
     public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
         event.put(WPEntityRegistry.CHAMELEON.get(), EntityChameleon.setAttributes());

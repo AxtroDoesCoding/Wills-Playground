@@ -1,4 +1,4 @@
-package net.axtro.willsplayground.item.custom;
+package net.axtro.willsplayground.item;
 
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
@@ -11,9 +11,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class MetalDetectorItem extends Item {
+public class ItemOreDetector extends Item {
 
-    public MetalDetectorItem(Properties pProperties) {
+    public ItemOreDetector(Properties pProperties) {
         super(pProperties);
     }
 
@@ -53,6 +53,9 @@ public class MetalDetectorItem extends Item {
     }
 
     private boolean isValuableBlock(BlockState state) {
-        return state.is(Blocks.IRON_ORE) || state.is(Blocks.DIAMOND_ORE) || state.is(Blocks.DEEPSLATE_DIAMOND_ORE);
+        return state.is
+                (Blocks.IRON_ORE) ||
+                state.is(Blocks.DIAMOND_ORE) ||
+                state.is(Blocks.DEEPSLATE_DIAMOND_ORE);
     }
 }

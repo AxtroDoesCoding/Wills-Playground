@@ -5,7 +5,7 @@ import net.axtro.willsplayground.entity.EntityRideableGoat;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.GeoModel;
 
-public class RideableGoatModel extends GeoModel<EntityRideableGoat> {
+public class ModelRideableGoat extends GeoModel<EntityRideableGoat> {
     @Override
     public ResourceLocation getModelResource(EntityRideableGoat entityRideableGoat) {
         return new ResourceLocation(WillsPlayground.MOD_ID, "geo/goat.geo.json");
