@@ -16,7 +16,7 @@ public class WPCreativeTabRegistry {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, WillsPlayground.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> PLAYGROUND_TAB = CREATIVE_MODE_TABS.register("playground_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(WPItemRegistry.AQUAMARINE.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(WPItemRegistry.LOGO.get()))
                     .title(Component.translatable("creativetab.playground_tab"))
                     .displayItems((pParameters, pOutput) -> {
 

@@ -15,6 +15,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class WPItemRegistry {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, WillsPlayground.MOD_ID);
+    public static final RegistryObject<Item> LOGO = ITEMS.register("logo", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> BEER = ITEMS.register("beer", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().alwaysEat().effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 600), 0.6f).build())));
     public static final RegistryObject<Item> ENZORITE = ITEMS.register("enzorite", () -> new Item(new Item.Properties()));
