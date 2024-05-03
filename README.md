@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://ibb.co/ykjMHSy" alt="WillsPlayground"/>
+<img src="https://imgur.com/a/6u0X6hK" alt="WillsPlayground"/>
 </p>
 
 As the name says, its a playground for me.
