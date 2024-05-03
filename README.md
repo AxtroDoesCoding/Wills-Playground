@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://imgur.com/a/6u0X6hK" alt="WillsPlayground"/>
+<img src="https://github.com/axtrough/Wills-Playground/blob/master/logolong.png?raw=true" alt="WillsPlayground"/>
 </p>
 
 As the name says, its a playground for me.
