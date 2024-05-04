@@ -207,5 +207,5 @@ public class EntityChameleon extends ShoulderRidingEntity implements GeoEntity {
 
             }
             return super.mobInteract(player, hand);
-        }
     }
+}

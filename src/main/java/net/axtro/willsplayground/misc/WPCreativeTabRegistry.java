@@ -16,14 +16,14 @@ public class WPCreativeTabRegistry {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, WillsPlayground.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> PLAYGROUND_TAB = CREATIVE_MODE_TABS.register("playground_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(WPItemRegistry.LOGO.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(WPItemRegistry.TABLOGO.get()))
                     .title(Component.translatable("creativetab.playground_tab"))
                     .displayItems((pParameters, pOutput) -> {
 
                         pOutput.accept(WPItemRegistry.METAL_DETECTOR.get());
                         pOutput.accept(WPItemRegistry.BEER.get());
 
-                        pOutput.accept(WPItemRegistry.AQUAMARINE.get());
+                        pOutput.accept(WPItemRegistry.MARINOR.get());
 
                         pOutput.accept(WPItemRegistry.ENZORITE.get());
                         pOutput.accept(WPItemRegistry.RAW_ENZORITE.get());
