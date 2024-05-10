@@ -23,7 +23,7 @@ public class WPItemRegistry {
     public static final RegistryObject<Item> METAL_DETECTOR = ITEMS.register("metal_detector", () -> new ItemOreDetector(new Item.Properties().durability(100)));
     public static final RegistryObject<Item> BIO_FUEL = ITEMS.register("bio_fuel", () -> new ItemBioFuel(new Item.Properties(), 400));
 
-    public static final RegistryObject<Item> MARINOR = ITEMS.register("marinor", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> MARINOR = ITEMS.register("marinor", () -> new Item(new Item.Properties()));;
 
 
     public static final RegistryObject<Item> RIDEABLE_GOAT_EGG = ITEMS.register("rideable_goat_egg", () -> new ForgeSpawnEggItem(WPEntityRegistry.RIDEABLE_GOAT, 0x7d8c86, 0xace6cf, new Item.Properties()));

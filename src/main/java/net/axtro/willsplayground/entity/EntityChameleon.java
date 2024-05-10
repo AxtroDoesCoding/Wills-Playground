@@ -49,7 +49,7 @@ public class EntityChameleon extends TamableAnimal implements GeoEntity {
     public static AttributeSupplier setAttributes() {
         return Animal.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 16D)
-                .add(Attributes.MOVEMENT_SPEED, 0.38f).build();
+                .add(Attributes.MOVEMENT_SPEED, 0.15f).build();
 
 
     }

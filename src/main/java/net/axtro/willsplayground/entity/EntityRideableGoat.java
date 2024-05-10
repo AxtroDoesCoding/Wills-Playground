@@ -30,7 +30,7 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.object.PlayState;
 
 
-public class EntityRideableGoat extends TamableAnimal implements GeoEntity, PlayerRideable {
+public class EntityRideableGoat extends TamableAnimal implements GeoEntity, PlayerRideable{
     AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
     public EntityRideableGoat(EntityType<? extends TamableAnimal> pEntityType, Level pLevel) {
@@ -99,7 +99,7 @@ public class EntityRideableGoat extends TamableAnimal implements GeoEntity, Play
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         Item item = itemstack.getItem();
 
-        Item itemForTaming = Items.APPLE;
+        Item itemForTaming = Items.WHEAT;
 
         if(item == itemForTaming && !isTame()) {
             if(this.level().isClientSide()) {
